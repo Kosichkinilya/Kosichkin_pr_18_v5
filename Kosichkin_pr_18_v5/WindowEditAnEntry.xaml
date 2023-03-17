@@ -1,0 +1,27 @@
+﻿<Window x:Class="Kosichkin_pr_18_v5.WindowEditAnEntry"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kosichkin_pr_18_v5"
+        mc:Ignorable="d"
+        Title="Редактирование записи" Height="350" Width="250">
+    <Grid>
+        <Button 
+            Content="Ок" 
+            Background="White
+            " HorizontalAlignment="Left"
+            Margin="180,304,0,0" 
+            VerticalAlignment="Top"
+            Click="Button_ok"
+            Width="60"/>
+        <Button 
+            Content="Отмена" 
+            Background="White" 
+            HorizontalAlignment="Left"
+            Margin="115,304,0,0"
+            VerticalAlignment="Top"
+            Click="Button_cancel"
+            Width="60"/>
+    </Grid>
+</Window>

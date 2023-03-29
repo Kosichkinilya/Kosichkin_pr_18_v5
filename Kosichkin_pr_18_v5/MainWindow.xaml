@@ -6,26 +6,40 @@
         xmlns:local="clr-namespace:Kosichkin_pr_18_v5"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Студенты 18" Height="450" Width="800">
+        Title="Студенты 18" Height="450" Width="850">
+
+
+    <Window.Background>
+        <LinearGradientBrush>
+            <GradientStop Offset="0" Color="Red"/>
+            <GradientStop Offset="0.7" Color="Purple"/>
+        </LinearGradientBrush>
+
+    </Window.Background>
     <Grid>
-        <Menu Height="20" VerticalAlignment="Top">
+        <Menu Height="20" VerticalAlignment="Top" Background="Transparent">
+
             <MenuItem 
                 Header="Добавить"
+                Foreground="White"
                 Click="Add_an_entry">
 
             </MenuItem>
             <MenuItem 
                 Header="Редактировать" 
+                      Foreground="White"
                 Click="Edit_an_entry" >
 
             </MenuItem>
             <MenuItem 
                 Header="Удалить" 
+                      Foreground="White"
                 Click="Delete_an_entry" >
 
             </MenuItem>
             <MenuItem
                 Header="Выход"
+                      Foreground="White"
                 Click="Close_the_program" >
 
             </MenuItem>
@@ -35,18 +49,46 @@
 
 
         <DataGrid
-            x:Name="DataGrid"
-            d:ItemsSource="{d:SampleData ItemCount=5}"
-            Background="white" 
-            Margin="0,20,0,63"/>
+            x:Name="dataGrid"
+            Background="Transparent"
+            HorizontalAlignment="Left"
+            Height="345" Margin="2,27,0,0"
+            VerticalAlignment="Top"
+            Width="843" 
+            RenderTransformOrigin="0.5,0.5" 
+            SelectionChanged="dataGrid1_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="35" Header="Код" Binding="{Binding id}"/>
+                <DataGridTextColumn Width="60" Header="Фамилия" Binding="{Binding Fio}"/>
+                <DataGridTextColumn Width="40" Header="Имя" Binding="{Binding name}"/>
+                <DataGridTextColumn Width="60" Header="Очество" Binding="{Binding oth}"/>
+                <DataGridTextColumn Width="150" Header="Номер зачетной книжки" Binding="{Binding nom}"/>
+                <DataGridTextColumn Width="95" Header="Индекс группы" Binding="{Binding index}"/>
+                <DataGridTextColumn Width="125" Header="Живёт в общежитии" Binding="{Binding obsh}"/>
+                <DataGridTextColumn Width="50" Header="Матан" Binding="{Binding mat}"/>
+                <DataGridTextColumn Width="55" Header="Эконом" Binding="{Binding econ}"/>
+                <DataGridTextColumn Width="55" Header="Бух учет" Binding="{Binding byx}"/>
+                <DataGridTextColumn Width="55" Header="Физ-ра" Binding="{Binding fizra}"/>
+                <DataGridTextColumn Width="55" Header="Англ яз" Binding="{Binding angl}"/>
 
+            </DataGrid.Columns>
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.208"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+        </DataGrid>
 
 
 
         <Grid Margin="0,371,0,0" Height="63" VerticalAlignment="Top">
             <Button
                 Content="Добавить"
-                Background="White" 
+                Background="Transparent" 
+                 Foreground="White"
                 FontSize="20"
                 HorizontalAlignment="Left" 
                 Margin="10,10,0,0" 
@@ -55,7 +97,8 @@
                 Click="Add_an_entry"/>
             <Button
                 Content="Редактировать"
-                Background="White" 
+                Background="Transparent" 
+                 Foreground="White"
                 FontSize="20" 
                 HorizontalAlignment="Center"
                 Margin="0,10,0,0" 
@@ -64,10 +107,11 @@
                 Click="Edit_an_entry"/>
             <Button
                 Content="Удалить"
-                Background="White"
+                Foreground="White"
+                Background="Transparent"
                 FontSize="20" 
                 HorizontalAlignment="Left" 
-                Margin="533,10,0,0"
+                Margin="584,10,0,0"
                 VerticalAlignment="Top"
                 Height="49" Width="256"
                 Click="Delete_an_entry"/>

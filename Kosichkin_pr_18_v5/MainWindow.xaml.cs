@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace Kosichkin_pr_18_v5
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -32,11 +34,10 @@ namespace Kosichkin_pr_18_v5
 
         private void Edit_an_entry(object sender, RoutedEventArgs e)
         {
-
             //открывает дополнительное окно
             WindowEditAnEntry f = new WindowEditAnEntry();
             f.ShowDialog();
-            DataGrid.Focus();
+           // dataGrid1.Focus();
         }
 
         private void Delete_an_entry(object sender, RoutedEventArgs e)
@@ -47,6 +48,19 @@ namespace Kosichkin_pr_18_v5
         private void Close_the_program(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+
+        StudentBase dataGrid1 = StudentBase.GetContext();
+        private void window_loaded(object sender, RoutedEventArgs e)
+        {
+            //dataGrid1.StudentBase.Load();
+            //dataGrid1.ItemsSource = dataGrid1.Student.Local.ToBindingList();
+        }
+
+        private void dataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -6,18 +6,29 @@
         xmlns:local="clr-namespace:Kosichkin_pr_18_v5"
         mc:Ignorable="d"
         Title="Редактирование записи" Height="350" Width="250">
+    <Window.Background>
+        <LinearGradientBrush>
+            <GradientStop Offset="0" Color="Red"/>
+            <GradientStop Offset="0.7" Color="Purple"/>
+        </LinearGradientBrush>
+
+    </Window.Background>
     <Grid>
+        
+        
         <Button 
             Content="Ок" 
-            Background="White
-            " HorizontalAlignment="Left"
+            Background="Transparent" 
+            Foreground="White"
+            HorizontalAlignment="Left"
             Margin="180,304,0,0" 
             VerticalAlignment="Top"
             Click="Button_ok"
             Width="60"/>
         <Button 
             Content="Отмена" 
-            Background="White" 
+              Background="Transparent" 
+            Foreground="White"
             HorizontalAlignment="Left"
             Margin="115,304,0,0"
             VerticalAlignment="Top"

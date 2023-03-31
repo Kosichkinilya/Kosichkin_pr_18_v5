@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Kosichkin_pr_18_v5
 {
     /// <summary>
@@ -25,19 +26,27 @@ namespace Kosichkin_pr_18_v5
         public MainWindow()
         {
             InitializeComponent();
+            this.Height += 25;
         }
         //Кнопки на основной форме
         private void Add_an_entry(object sender, RoutedEventArgs e)
         {
+           // открывает дополнительное окно
+            WindowEditAnEntry f = new WindowEditAnEntry();
+            f.ShowDialog();
+            dataGrid1.Focus();
 
+
+            //WindowEditAnEntry f = new WindowEditAnEntry();
+            //f.ShowDialog();
+            //dataGrid1.ItemsSource = null;
+            //dataGrid1.ItemsSource = db.Table_1.ToList();
+            //dataGrid1.Focus();
         }
 
         private void Edit_an_entry(object sender, RoutedEventArgs e)
         {
-            //открывает дополнительное окно
-            WindowEditAnEntry f = new WindowEditAnEntry();
-            f.ShowDialog();
-           // dataGrid1.Focus();
+           
         }
 
         private void Delete_an_entry(object sender, RoutedEventArgs e)
@@ -51,14 +60,16 @@ namespace Kosichkin_pr_18_v5
         }
 
 
-        StudentBase dataGrid1 = StudentBase.GetContext();
-        private void window_loaded(object sender, RoutedEventArgs e)
+        DB_Students_18Entities db = DB_Students_18Entities.GetContext();
+        private void Window_loaded(object sender, RoutedEventArgs e) 
         {
-            //dataGrid1.StudentBase.Load();
-            //dataGrid1.ItemsSource = dataGrid1.Student.Local.ToBindingList();
+            //загружаем таблицу из БД
+            db.StudentBases.Load();
+            //загружаем таблицу в дата грид с отслеживанием изменения контекста 
+            dataGrid1.ItemsSource = db.StudentBases.Local.ToBindingList();
         }
 
-        private void dataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void DataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

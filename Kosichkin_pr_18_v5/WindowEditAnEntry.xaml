@@ -5,23 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kosichkin_pr_18_v5"
         mc:Ignorable="d"
-        Title="Редактирование записи" Height="350" Width="250">
+        ResizeMode="NoResize"
+        Title="Редактирование записи" Height="420" Width="290">
     <Window.Background>
         <LinearGradientBrush>
-            <GradientStop Offset="0" Color="Red"/>
-            <GradientStop Offset="0.7" Color="Purple"/>
+            <GradientStop Offset="0" Color="#FF27A4C7"/>
+            <GradientStop Offset="0.7" Color="#FFDCB0B0"/>
         </LinearGradientBrush>
 
     </Window.Background>
     <Grid>
-        
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Добавление записи"  FontFamily="Segoe UI"  FontSize="24" Foreground="White" Margin="20,10,50,360">
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="2" Color="Gray"/>
+            </TextBlock.Effect>
+        </TextBlock>
+
         <Button 
             Content="Ок" 
             Background="Transparent" 
             Foreground="White"
             HorizontalAlignment="Left"
-            Margin="180,304,0,0" 
+            Margin="220,371,0,0" 
             VerticalAlignment="Top"
             Click="Button_ok"
             Width="60"/>
@@ -30,9 +39,114 @@
               Background="Transparent" 
             Foreground="White"
             HorizontalAlignment="Left"
-            Margin="115,304,0,0"
+            Margin="155,371,0,0"
             VerticalAlignment="Top"
             Click="Button_cancel"
             Width="60"/>
+        <Border HorizontalAlignment="Left" Height="253" Margin="10,46,0,0" VerticalAlignment="Top">
+
+            <Grid Height="253" Width="120">
+
+
+
+                <TextBox  Background="White"
+                        HorizontalAlignment="Left"
+                        Margin="0,24,0,0"
+                        TextWrapping="Wrap" 
+                  x:Name="Surname"
+                        VerticalAlignment="Top"
+                        Width="120" Height="27"/>
+                <TextBox Background="White" 
+                        x:Name="Name"
+                        HorizontalAlignment="Left"
+                        Margin="0,75,0,0"
+                        TextWrapping="Wrap"
+                 
+                        VerticalAlignment="Top"
+                        Width="120" Height="28"/>
+                <TextBox Background="White"
+                         x:Name="Middle_name"
+                        HorizontalAlignment="Left"
+                        Margin="0,127,0,0" 
+                        TextWrapping="Wrap" 
+                 
+                        VerticalAlignment="Top"
+                        Width="120" Height="26"/>
+                <TextBox Background="White" 
+                        HorizontalAlignment="Left" 
+                        Margin="0,177,0,0"
+                         x:Name="Book_number"
+                        TextWrapping="Wrap"
+                 
+                        VerticalAlignment="Top"
+                        Width="120" Height="26"/>
+                <TextBox  Background="White" 
+                        HorizontalAlignment="Left" 
+                        Margin="0,227,0,0"
+                        TextWrapping="Wrap" 
+                  x:Name="Group_index"
+                        VerticalAlignment="Top"
+                        Width="120" Height="26"/>
+                <Label Content="Фамилия" Foreground="White" FontFamily="Arial" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="Имя" Foreground="White" FontFamily="Arial" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top"/>
+                <Label Content="Отчество" Foreground="White" FontFamily="Arial" HorizontalAlignment="Left" Margin="0,103,0,0" VerticalAlignment="Top"/>
+                <Label Content="№ зачетной книги" Foreground="White" FontFamily="Arial" HorizontalAlignment="Left" Margin="0,153,0,0" VerticalAlignment="Top"/>
+                <Label Content="Индекс группы" Foreground="White" FontFamily="Arial" HorizontalAlignment="Left" Margin="0,203,0,0" VerticalAlignment="Top"/>
+
+
+
+            </Grid>
+
+        </Border>
+
+
+
+        <ComboBox x:Name="English" HorizontalAlignment="Left" Margin="160,70,0,0" VerticalAlignment="Top" Width="120"  Height="27">
+            <ComboBoxItem Content="Да"/>
+            <ComboBoxItem Content="Нет"/>
+        </ComboBox>
+
+        <ComboBox x:Name="Mathematics" HorizontalAlignment="Left" Margin="160,121,0,0" VerticalAlignment="Top" Width="120"  Height="28">
+            <ComboBoxItem Content="Да"/>
+            <ComboBoxItem Content="Нет"/>
+        </ComboBox>
+
+        <ComboBox x:Name="Physical_culture" HorizontalAlignment="Left" Margin="160,173,0,0" VerticalAlignment="Top" Width="120"  Height="26">
+            <ComboBoxItem Content="Да"/>
+            <ComboBoxItem Content="Нет"/>
+        </ComboBox>
+
+        <ComboBox x:Name="Economy" HorizontalAlignment="Left" Margin="160,223,0,0" VerticalAlignment="Top" Width="120"  Height="28">
+            <ComboBoxItem Content="Да"/>
+            <ComboBoxItem Content="Нет"/>
+        </ComboBox>
+
+        <ComboBox x:Name="habitation" HorizontalAlignment="Left" Margin="160,275,0,0" VerticalAlignment="Top" Width="120"  Height="26">
+            <ComboBoxItem Content="Проживает"/>
+            <ComboBoxItem Content="Не поживает"/>
+        </ComboBox>
+
+        <ComboBox x:Name="accounting_service" HorizontalAlignment="Left" Margin="160,325,0,0" VerticalAlignment="Top" Width="120"  Height="27">
+            <ComboBoxItem Content="Да"/>
+            <ComboBoxItem Content="Нет"/>
+        </ComboBox>
+        <Label Content="Экономика" Foreground="White"  FontFamily="Arial" HorizontalAlignment="Left" Margin="160,46,0,0" VerticalAlignment="Top"/>
+        <Label Content="Математика" Foreground="White" FontFamily="Arial" HorizontalAlignment="Left" Margin="160,97,0,0" VerticalAlignment="Top"/>
+        <Label Content="Физ-ра" Foreground="White" FontFamily="Arial" HorizontalAlignment="Left" Margin="160,149,0,0" VerticalAlignment="Top"/>
+        <Label Content="Экономика" Foreground="White" FontFamily="Arial" HorizontalAlignment="Left" Margin="160,199,0,0" VerticalAlignment="Top"/>
+        <Label Content="Общежитие" Foreground="White" FontFamily="Arial" HorizontalAlignment="Left" Margin="160,251,0,0" VerticalAlignment="Top"/>
+
+        <Label Content="Бух. учёт" Foreground="White" FontFamily="Arial" HorizontalAlignment="Left" Margin="160,301,0,0" VerticalAlignment="Top"/>
+
     </Grid>
+
+
+
+
+
+
+
+
+
+
 </Window>

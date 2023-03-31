@@ -5,18 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kosichkin_pr_18_v5"
         mc:Ignorable="d"
-        ResizeMode="NoResize"
+    ResizeMode="CanResize"
         Title="Студенты 18" Height="450" Width="850">
 
 
     <Window.Background>
         <LinearGradientBrush>
-            <GradientStop Offset="0" Color="Red"/>
-            <GradientStop Offset="0.7" Color="Purple"/>
+            <GradientStop Offset="0"   Color="#FF27A4C7"/>
+            <GradientStop Offset="0.7"  Color="#FFDCB0B0"/>
         </LinearGradientBrush>
 
     </Window.Background>
+    
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel>
         <Menu Height="20" VerticalAlignment="Top" Background="Transparent">
 
             <MenuItem 
@@ -44,54 +54,57 @@
 
             </MenuItem>
         </Menu>
-
-
-
-
-        <DataGrid
-            x:Name="dataGrid"
+            <DataGrid
+            x:Name="dataGrid1"
+                HorizontalAlignment="Stretch"
             Background="Transparent"
-            HorizontalAlignment="Left"
-            Height="345" Margin="2,27,0,0"
-            VerticalAlignment="Top"
+            Height="345"
             Width="843" 
             RenderTransformOrigin="0.5,0.5" 
-            SelectionChanged="dataGrid1_SelectionChanged">
-            <DataGrid.Columns>
-                <DataGridTextColumn Width="35" Header="Код" Binding="{Binding id}"/>
-                <DataGridTextColumn Width="60" Header="Фамилия" Binding="{Binding Fio}"/>
-                <DataGridTextColumn Width="40" Header="Имя" Binding="{Binding name}"/>
-                <DataGridTextColumn Width="60" Header="Очество" Binding="{Binding oth}"/>
-                <DataGridTextColumn Width="150" Header="Номер зачетной книжки" Binding="{Binding nom}"/>
-                <DataGridTextColumn Width="95" Header="Индекс группы" Binding="{Binding index}"/>
-                <DataGridTextColumn Width="125" Header="Живёт в общежитии" Binding="{Binding obsh}"/>
-                <DataGridTextColumn Width="50" Header="Матан" Binding="{Binding mat}"/>
-                <DataGridTextColumn Width="55" Header="Эконом" Binding="{Binding econ}"/>
-                <DataGridTextColumn Width="55" Header="Бух учет" Binding="{Binding byx}"/>
-                <DataGridTextColumn Width="55" Header="Физ-ра" Binding="{Binding fizra}"/>
-                <DataGridTextColumn Width="55" Header="Англ яз" Binding="{Binding angl}"/>
+            SelectionChanged="DataGrid1_SelectionChanged">
+                <DataGrid.Columns>
 
-            </DataGrid.Columns>
-            <DataGrid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.208"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </DataGrid.RenderTransform>
-        </DataGrid>
+                    <DataGridTextColumn Width="35" Header="Код" Binding="{Binding id}"/>
+                    <DataGridTextColumn Width="60" Header="Фамилия" Binding="{Binding Fio}"/>
+                    <DataGridTextColumn Width="40" Header="Имя" Binding="{Binding name}"/>
+                    <DataGridTextColumn Width="60" Header="Очество" Binding="{Binding oth}"/>
+                    <DataGridTextColumn Width="150" Header="Номер зачетной книжки" Binding="{Binding nom}"/>
+                    <DataGridTextColumn Width="95" Header="Индекс группы" Binding="{Binding index}"/>
+                    <DataGridTextColumn Width="125" Header="Живёт в общежитии" Binding="{Binding obsh}"/>
+                    <DataGridTextColumn Width="50" Header="Матан" Binding="{Binding mat}"/>
+                    <DataGridTextColumn Width="55" Header="Эконом" Binding="{Binding econ}"/>
+                    <DataGridTextColumn Width="55" Header="Бух учет" Binding="{Binding byx}"/>
+                    <DataGridTextColumn Width="55" Header="Физ-ра" Binding="{Binding fizra}"/>
+                    <DataGridTextColumn Width="55" Header="Англ яз" Binding="{Binding angl}"/>
 
+                </DataGrid.Columns>
+                <DataGrid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.208"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </DataGrid.RenderTransform>
+            </DataGrid>
 
+        </StackPanel>
 
-        <Grid Margin="0,371,0,0" Height="63" VerticalAlignment="Top">
+        <Grid
+            
+            Margin="0,371,0,0" Height="63" VerticalAlignment="Top">
+            <StackPanel>
+
             <Button
+                
+
                 Content="Добавить"
                 Background="Transparent" 
                  Foreground="White"
-                FontSize="20"
-                HorizontalAlignment="Left" 
-                Margin="10,10,0,0" 
+                FontFamily="Segoe UI"
+                FontSize="25"
+                HorizontalAlignment="Stretch" 
+                Margin="-550,10,0,0" 
                 VerticalAlignment="Top"
                 Height="49" Width="256"
                 Click="Add_an_entry"/>
@@ -99,9 +112,10 @@
                 Content="Редактировать"
                 Background="Transparent" 
                  Foreground="White"
-                FontSize="20" 
-                HorizontalAlignment="Center"
-                Margin="0,10,0,0" 
+                 FontFamily="Segoe UI"
+                FontSize="25" 
+                HorizontalAlignment="Stretch"
+                Margin="10,-50,0,0" 
                 VerticalAlignment="Top"
                 Height="49" Width="256"
                 Click="Edit_an_entry"/>
@@ -109,15 +123,15 @@
                 Content="Удалить"
                 Foreground="White"
                 Background="Transparent"
-                FontSize="20" 
-                HorizontalAlignment="Left" 
-                Margin="584,10,0,0"
+                FontSize="25" 
+                HorizontalAlignment="Stretch" 
+                 FontFamily="Segoe UI"
+                Margin="584,-50,0,0"
                 VerticalAlignment="Top"
                 Height="49" Width="256"
                 Click="Delete_an_entry"/>
-
+            </StackPanel>
         </Grid>
-
 
     </Grid>
 

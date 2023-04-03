@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Kosichkin_pr_18_v5"
         mc:Ignorable="d"
     ResizeMode="CanResize"
-        Title="Студенты 18" Height="450" Width="850">
+        Title="Студенты 18" Height="450" Width="850" Loaded="Window_loaded">
 
 
     <Window.Background>
@@ -35,19 +35,28 @@
                 Click="Add_an_entry">
 
             </MenuItem>
+            
             <MenuItem 
                 Header="Редактировать" 
                       Foreground="White"
                 Click="Edit_an_entry" >
 
             </MenuItem>
+            
             <MenuItem 
                 Header="Удалить" 
+            
                       Foreground="White"
                 Click="Delete_an_entry" >
 
             </MenuItem>
-            <MenuItem
+
+                <MenuItem 
+                Header="Инфо" 
+                      Foreground="White"
+                 />
+
+                <MenuItem
                 Header="Выход"
                       Foreground="White"
                 Click="Close_the_program" >
@@ -58,24 +67,26 @@
             x:Name="dataGrid1"
                 HorizontalAlignment="Stretch"
             Background="Transparent"
+                IsReadOnly="True"
+                AutoGenerateColumns="False"
             Height="345"
             Width="843" 
             RenderTransformOrigin="0.5,0.5" 
             SelectionChanged="DataGrid1_SelectionChanged">
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Width="35" Header="Код" Binding="{Binding id}"/>
-                    <DataGridTextColumn Width="60" Header="Фамилия" Binding="{Binding Fio}"/>
-                    <DataGridTextColumn Width="40" Header="Имя" Binding="{Binding name}"/>
-                    <DataGridTextColumn Width="60" Header="Очество" Binding="{Binding oth}"/>
-                    <DataGridTextColumn Width="150" Header="Номер зачетной книжки" Binding="{Binding nom}"/>
-                    <DataGridTextColumn Width="95" Header="Индекс группы" Binding="{Binding index}"/>
-                    <DataGridTextColumn Width="125" Header="Живёт в общежитии" Binding="{Binding obsh}"/>
-                    <DataGridTextColumn Width="50" Header="Матан" Binding="{Binding mat}"/>
-                    <DataGridTextColumn Width="55" Header="Эконом" Binding="{Binding econ}"/>
-                    <DataGridTextColumn Width="55" Header="Бух учет" Binding="{Binding byx}"/>
-                    <DataGridTextColumn Width="55" Header="Физ-ра" Binding="{Binding fizra}"/>
-                    <DataGridTextColumn Width="55" Header="Англ яз" Binding="{Binding angl}"/>
+                    <DataGridTextColumn Width="35" Header="Код" Binding="{Binding Код}"/>
+                    <DataGridTextColumn Width="60" Header="Фамилия" Binding="{Binding Фамилия}"/>
+                    <DataGridTextColumn Width="40" Header="Имя" Binding="{Binding Имя}"/>
+                    <DataGridTextColumn Width="60" Header="Очество" Binding="{Binding Отчество}"/>
+                    <DataGridTextColumn Width="150" Header="Номер зачетной книжки" Binding="{Binding Номер_зачётной_книжки}"/>
+                    <DataGridTextColumn Width="100" Header="Индекс группы" Binding="{Binding Индекс_группы}"/>
+                    <DataGridTextColumn Width="125" Header="Живёт в общежитии" Binding="{Binding Живёт_ли_студен_в_общежитии}"/>
+                    <DataGridTextColumn Width="50" Header="Матан" Binding="{Binding Математика}"/>
+                    <DataGridTextColumn Width="55" Header="Эконом" Binding="{Binding Экономика}"/>
+                    <DataGridTextColumn Width="55" Header="Бух учет" Binding="{Binding Бух__учёт}"/>
+                    <DataGridTextColumn Width="55" Header="Физ-ра" Binding="{Binding Физ_ра}"/>
+                    <DataGridTextColumn Width="55" Header="Англ яз" Binding="{Binding Англ__яз}"/>
 
                 </DataGrid.Columns>
                 <DataGrid.RenderTransform>

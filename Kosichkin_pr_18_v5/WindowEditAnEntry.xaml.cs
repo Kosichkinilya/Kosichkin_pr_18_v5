@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,13 +22,15 @@ namespace Kosichkin_pr_18_v5
     /// </summary>
     public partial class WindowEditAnEntry : Window
     {
-        
+        // Если убрать это то будет огромное белое окно 
         public WindowEditAnEntry()
         {
             InitializeComponent();
-            this.Height += 50;
+            this.Height += 15;
         }
 
+
+        DB_Students_18Entities db = DB_Students_18Entities.GetContext();
         private void Button_ok(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
@@ -35,47 +38,44 @@ namespace Kosichkin_pr_18_v5
             if (Name.Text.Length == 0) errors.AppendLine("Введите Имя");
             if (Middle_name.Text.Length == 0) errors.AppendLine("Введите Очество ");
             if (Book_number.Text.Length == 0) errors.AppendLine("Введите Номер зачетной книжки");
-            if (Group_index.Text.Length == 0) errors.AppendLine("Введите Индекс группы");
-            if (habitation.Text.Length == 0)
-                errors.AppendLine("Укажите место важего проживания");
-            if (Mathematics.Text.Length == 0)
-                errors.AppendLine("Укажите хотите ли вы изучать данную дисциплину");
-            if (Economy.Text.Length == 0)
-                errors.AppendLine("Укажите хотите ли вы изучать данную дисциплину");
-            if (accounting_service.Text.Length == 0)
-                errors.AppendLine("Укажите хотите ли вы изучать данную дисциплину");
-            if (Physical_culture.Text.Length == 0)
-                errors.AppendLine("Укажите хотите ли вы изучать данную дисциплину");
-            if (English.Text.Length == 0)
-                errors.AppendLine("Укажите хотите ли вы изучать данную дисциплину");
-            if (errors.Length > 0)
-            {
-                MessageBox.Show(errors.ToString());
-                //return;
 
-            }
 
-            Table_1 p1 = new Table_1();
-            //Table_1 заменить на StudentBase 
+            if (Hostel.IsChecked.Value == true)
+                if (Mathematics.IsChecked.Value == true)
+                    if (Economy.IsChecked.Value == true)
+                        if (Accounting.IsChecked.Value == true)
+                            if (Physical_culture.IsChecked.Value == true)
+                                if (English.IsChecked.Value == true)
+                                    if (errors.Length > 0)
+                                    {
+                                        MessageBox.Show(errors.ToString());
+                                        //return;
 
+                                    }
+
+            StudentBase p1 = new StudentBase();
+
+            // Инициализация объектов
             p1.Фамилия = Surname.Text;
             p1.Имя = Name.Text;
-            p1.Очество = Middle_name.Text;
-            p1.Номер_зачетной_книжки = Convert.ToInt32(Book_number.Text);
-            p1.Живет_ли_студент_в_общежитии = habitation.Text;
+            p1.Отчество = Middle_name.Text;
+            p1.Номер_зачётной_книжки = Book_number.Text;
             p1.Индекс_группы = Convert.ToInt32(Group_index.Text);
-            p1.Математика = Mathematics.Text;
-            p1.Экономика = Economy.Text;
-            p1.Бухгалтерский_учет = accounting_service.Text;
-            p1.Физкультура = Physical_culture.Text;
-            p1.Английский_язык = English.Text;
+            p1.Живёт_ли_студен_в_общежитии = true;
+            p1.Математика = true;
+            p1.Экономика = true;
+            p1.Бух__учёт = true;
+            p1.Физ_ра = true;
+            p1.Англ__яз = true;
+
+           //разобраться почему все записывается в таблицу как true
 
             try
             {
-                db.Table_1.Add(p1);
+                db.StudentBases.Add(p1);
                 db.SaveChanges();
                 MessageBox.Show("Сохранено");
-                this.Close();
+                Close();
             }
             catch (Exception ex)
             {

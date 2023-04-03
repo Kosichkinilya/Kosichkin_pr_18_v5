@@ -14,16 +14,17 @@ namespace Kosichkin_pr_18_v5
     
     public partial class StudentBase
     {
-        public string Код { get; set; }
+        public int Код { get; set; }
         public string Фамилия { get; set; }
         public string Имя { get; set; }
         public string Отчество { get; set; }
         public string Номер_зачётной_книжки { get; set; }
-        public string Живёт_ли_студен_в_общежитии { get; set; }
-        public string Математика { get; set; }
-        public string Экономика { get; set; }
-        public string Бух__учёт { get; set; }
-        public string Физ_ра { get; set; }
-        public string Англ__яз { get; set; }
+        public Nullable<bool> Живёт_ли_студен_в_общежитии { get; set; }
+        public Nullable<bool> Математика { get; set; }
+        public Nullable<bool> Экономика { get; set; }
+        public Nullable<bool> Бух__учёт { get; set; }
+        public Nullable<bool> Физ_ра { get; set; }
+        public Nullable<bool> Англ__яз { get; set; }
+        public Nullable<int> Индекс_группы { get; set; }
     }
 }

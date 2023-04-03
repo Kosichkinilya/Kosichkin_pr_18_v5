@@ -31,7 +31,7 @@ namespace Kosichkin_pr_18_v5
         //Кнопки на основной форме
         private void Add_an_entry(object sender, RoutedEventArgs e)
         {
-           // открывает дополнительное окно
+           // открывает форму добавления студента
             WindowEditAnEntry f = new WindowEditAnEntry();
             f.ShowDialog();
             dataGrid1.Focus();
@@ -49,9 +49,25 @@ namespace Kosichkin_pr_18_v5
            
         }
 
+        // Удаление студента из списка
         private void Delete_an_entry(object sender, RoutedEventArgs e)
         {
-
+            MessageBoxResult result;
+            result = MessageBox.Show("Удалить запись?", "Удаление записи",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    StudentBase row = (StudentBase)dataGrid1.SelectedItems[0];
+                    db.StudentBases.Remove(row);
+                    db.SaveChanges();
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    MessageBox.Show("Выберите запись");
+                }
+            }
         }
 
         private void Close_the_program(object sender, RoutedEventArgs e)
@@ -59,8 +75,14 @@ namespace Kosichkin_pr_18_v5
             Close();
         }
 
+        private void info(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Имя лучшего разработчика вся РУСИ");
+        }
 
         DB_Students_18Entities db = DB_Students_18Entities.GetContext();
+
+
         private void Window_loaded(object sender, RoutedEventArgs e) 
         {
             //загружаем таблицу из БД
@@ -71,7 +93,6 @@ namespace Kosichkin_pr_18_v5
 
         private void DataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
         }
     }
 }

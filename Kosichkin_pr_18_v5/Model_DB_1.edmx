@@ -4,86 +4,51 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище DB_Students_18Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "DB_Students_18.dbo.StudentBase" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+    <Schema Namespace="Хранилище DB_Students_18Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="StudentBase">
           <Key>
             <PropertyRef Name="Код" />
-            <PropertyRef Name="Фамилия" />
-            <PropertyRef Name="Имя" />
-            <PropertyRef Name="Отчество" />
-            <PropertyRef Name="Номер зачётной книжки" />
-            <PropertyRef Name="Живёт ли студен в общежитии" />
-            <PropertyRef Name="Математика" />
-            <PropertyRef Name="Экономика" />
-            <PropertyRef Name="Бух. учёт" />
-            <PropertyRef Name="Физ-ра" />
-            <PropertyRef Name="Англ. яз" />
           </Key>
-          <Property Name="Код" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Фамилия" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Имя" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Отчество" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Номер зачётной книжки" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Живёт ли студен в общежитии" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Математика" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Экономика" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Бух. учёт" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Физ-ра" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Англ. яз" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Фамилия" Type="text" />
+          <Property Name="Имя" Type="text" />
+          <Property Name="Отчество" Type="text" />
+          <Property Name="Номер зачётной книжки" Type="text" />
+          <Property Name="Живёт ли студен в общежитии" Type="bit" />
+          <Property Name="Математика" Type="bit" />
+          <Property Name="Экономика" Type="bit" />
+          <Property Name="Бух. учёт" Type="bit" />
+          <Property Name="Физ-ра" Type="bit" />
+          <Property Name="Англ. яз" Type="bit" />
+          <Property Name="Индекс группы" Type="int" />
         </EntityType>
         <EntityContainer Name="Хранилище DB_Students_18ModelContainer">
-          <EntitySet Name="StudentBase" EntityType="Self.StudentBase" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [StudentBase].[Код] AS [Код], 
-    [StudentBase].[Фамилия] AS [Фамилия], 
-    [StudentBase].[Имя] AS [Имя], 
-    [StudentBase].[Отчество] AS [Отчество], 
-    [StudentBase].[Номер зачётной книжки] AS [Номер зачётной книжки], 
-    [StudentBase].[Живёт ли студен в общежитии] AS [Живёт ли студен в общежитии], 
-    [StudentBase].[Математика] AS [Математика], 
-    [StudentBase].[Экономика] AS [Экономика], 
-    [StudentBase].[Бух. учёт] AS [Бух. учёт], 
-    [StudentBase].[Физ-ра] AS [Физ-ра], 
-    [StudentBase].[Англ. яз] AS [Англ. яз]
-    FROM [dbo].[StudentBase] AS [StudentBase]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="StudentBase" EntityType="Self.StudentBase" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_Students_18Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DB_Students_18Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="StudentBases" EntityType="DB_Students_18Model.StudentBase" />
+        </EntityContainer>
         <EntityType Name="StudentBase">
           <Key>
             <PropertyRef Name="Код" />
-            <PropertyRef Name="Фамилия" />
-            <PropertyRef Name="Имя" />
-            <PropertyRef Name="Отчество" />
-            <PropertyRef Name="Номер_зачётной_книжки" />
-            <PropertyRef Name="Живёт_ли_студен_в_общежитии" />
-            <PropertyRef Name="Математика" />
-            <PropertyRef Name="Экономика" />
-            <PropertyRef Name="Бух__учёт" />
-            <PropertyRef Name="Физ_ра" />
-            <PropertyRef Name="Англ__яз" />
           </Key>
-          <Property Name="Код" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Фамилия" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Имя" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Отчество" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Номер_зачётной_книжки" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Живёт_ли_студен_в_общежитии" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Математика" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Экономика" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Бух__учёт" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Физ_ра" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Англ__яз" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Фамилия" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Имя" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Отчество" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Номер_зачётной_книжки" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Живёт_ли_студен_в_общежитии" Type="Boolean" />
+          <Property Name="Математика" Type="Boolean" />
+          <Property Name="Экономика" Type="Boolean" />
+          <Property Name="Бух__учёт" Type="Boolean" />
+          <Property Name="Физ_ра" Type="Boolean" />
+          <Property Name="Англ__яз" Type="Boolean" />
+          <Property Name="Индекс_группы" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="DB_Students_18Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="StudentBases" EntityType="Self.StudentBase" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -93,17 +58,18 @@
           <EntitySetMapping Name="StudentBases">
             <EntityTypeMapping TypeName="DB_Students_18Model.StudentBase">
               <MappingFragment StoreEntitySet="StudentBase">
-                <ScalarProperty Name="Код" ColumnName="Код" />
-                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
-                <ScalarProperty Name="Имя" ColumnName="Имя" />
-                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
-                <ScalarProperty Name="Номер_зачётной_книжки" ColumnName="Номер зачётной книжки" />
-                <ScalarProperty Name="Живёт_ли_студен_в_общежитии" ColumnName="Живёт ли студен в общежитии" />
-                <ScalarProperty Name="Математика" ColumnName="Математика" />
-                <ScalarProperty Name="Экономика" ColumnName="Экономика" />
-                <ScalarProperty Name="Бух__учёт" ColumnName="Бух. учёт" />
-                <ScalarProperty Name="Физ_ра" ColumnName="Физ-ра" />
+                <ScalarProperty Name="Индекс_группы" ColumnName="Индекс группы" />
                 <ScalarProperty Name="Англ__яз" ColumnName="Англ. яз" />
+                <ScalarProperty Name="Физ_ра" ColumnName="Физ-ра" />
+                <ScalarProperty Name="Бух__учёт" ColumnName="Бух. учёт" />
+                <ScalarProperty Name="Экономика" ColumnName="Экономика" />
+                <ScalarProperty Name="Математика" ColumnName="Математика" />
+                <ScalarProperty Name="Живёт_ли_студен_в_общежитии" ColumnName="Живёт ли студен в общежитии" />
+                <ScalarProperty Name="Номер_зачётной_книжки" ColumnName="Номер зачётной книжки" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Код" ColumnName="Код" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

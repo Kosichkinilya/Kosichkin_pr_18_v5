@@ -13,10 +13,10 @@ namespace Kosichkin_pr_18_v5
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DB_Students_18Entities : DbContext
+    public partial class Accounting_for_wholesale_salesEntities : DbContext
     {
-        public DB_Students_18Entities()
-            : base("name=DB_Students_18Entities")
+        public Accounting_for_wholesale_salesEntities()
+            : base("name=Accounting_for_wholesale_salesEntities")
         {
         }
     
@@ -25,6 +25,6 @@ namespace Kosichkin_pr_18_v5
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<StudentBase> StudentBases { get; set; }
+        public virtual DbSet<Sales_table> Sales_table { get; set; }
     }
 }

@@ -36,7 +36,7 @@ namespace Kosichkin_pr_18_v5
             if (product_name.Text.Length == 0)
                 errors.AppendLine("Введите наименование продукта");
             if (admission_price.Text.Length == 0)
-                errors.AppendLine("Введите цену поступления");
+                errors.AppendLine("Введите Цену поступления");
             if (Book_nbatch_numberumber.Text.Length == 0)
                 errors.AppendLine("Введите номер партии ");
             if (batch_size.Text.Length == 0)
@@ -49,11 +49,14 @@ namespace Kosichkin_pr_18_v5
                 errors.AppendLine("Введите цену продажи");
 
 
-            //if (admission_date.Value != DateTime)
-            //    errors.AppendLine("Выберите дату поступления");
 
-            //if (admission_date.Value != DateTime.MinValue)
-            //    errors.AppendLine("Выберите дату продажи");
+            if (admission_date.Text.Length == 0)
+                errors.AppendLine("Выберите дату поступления");
+
+            if (date_of_sale.Text.Length == 0)
+                errors.AppendLine("Выберите дату продажи");
+
+         
 
             if (errors.Length > 0)
             {
@@ -90,6 +93,17 @@ namespace Kosichkin_pr_18_v5
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+        }
+
+
+        private void TextBox_PrewInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!int.TryParse(e.Text, out _)) e.Handled = true;
+        }
+
+        private void TextBox_PrewInput2(object sender, TextCompositionEventArgs e)
+        {
+            if (int.TryParse(e.Text, out _)) e.Handled = true;
         }
 
         private void Button_cancel(object sender, RoutedEventArgs e)

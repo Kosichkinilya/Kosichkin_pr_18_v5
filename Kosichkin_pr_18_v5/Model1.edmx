@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Код" />
           </Key>
-          <Property Name="Код" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Наименование товара" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Цена поступления" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Дата поступления" Type="date" Nullable="false" />
@@ -20,8 +20,18 @@
           <Property Name="Цена продажи" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Дата продажи" Type="date" Nullable="false" />
         </EntityType>
+        <EntityType Name="UserData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rights" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="Хранилище ModelContainer">
           <EntitySet Name="Sales table" EntityType="Self.Sales table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserData" EntityType="Self.UserData" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -31,7 +41,7 @@
           <Key>
             <PropertyRef Name="Код" />
           </Key>
-          <Property Name="Код" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Наименование_товара" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Цена_поступления" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Дата_поступления" Type="DateTime" Nullable="false" Precision="0" />
@@ -42,15 +52,25 @@
           <Property Name="Цена_продажи" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Дата_продажи" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
-        <EntityContainer Name="Accounting_for_wholesale_salesEntities" annotation:LazyLoadingEnabled="true">
+        <EntityType Name="UserData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rights" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Accounting_for_wholesale_salesEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Sales_table" EntityType="Self.Sales_table" />
+          <EntitySet Name="UserData" EntityType="Self.UserData" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Accounting_for_wholesale_salesEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Accounting_for_wholesale_salesEntities2">
           <EntitySetMapping Name="Sales_table">
             <EntityTypeMapping TypeName="Model.Sales_table">
               <MappingFragment StoreEntitySet="Sales table">
@@ -64,6 +84,16 @@
                 <ScalarProperty Name="Размер_проданной_партии" ColumnName="Размер проданной партии" />
                 <ScalarProperty Name="Цена_продажи" ColumnName="Цена продажи" />
                 <ScalarProperty Name="Дата_продажи" ColumnName="Дата продажи" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserData">
+            <EntityTypeMapping TypeName="Model.UserData">
+              <MappingFragment StoreEntitySet="UserData">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Rights" ColumnName="Rights" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

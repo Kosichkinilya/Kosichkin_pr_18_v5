@@ -25,6 +25,7 @@
             Foreground="Black"
             HorizontalAlignment="Left"
             Margin="252,299,0,0" 
+            Click="Button_ok"
             VerticalAlignment="Top"
             Width="58"/>
         <Button 
@@ -34,7 +35,8 @@
             HorizontalAlignment="Left"
             Margin="190,299,0,0"
             VerticalAlignment="Top"
-            Width="57"/>
+            Width="57"
+            Click="Button_cancel"/>
         <Border HorizontalAlignment="Left" Height="253" Margin="10,46,0,0" VerticalAlignment="Top">
 
             <Grid Height="253" Width="135">

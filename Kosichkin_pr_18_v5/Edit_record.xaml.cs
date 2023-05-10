@@ -46,12 +46,16 @@ namespace Kosichkin_pr_18_v5
                 errors.AppendLine("Введите размер проданной партии");
             if (buyers_firm.Text.Length == 0)
                 errors.AppendLine("Введите цену продажи");
+              
+
+
+
 
             if (admission_date.Text.Length == 0)
-                errors.AppendLine("Выберите дату приема");
+                errors.AppendLine("Выберите дату поступления");
 
             if (date_of_sale.Text.Length == 0)
-                errors.AppendLine("Выберите дату приема");
+                errors.AppendLine("Выберите дату продажи");
 
             if (errors.Length > 0)
             {
@@ -94,13 +98,10 @@ namespace Kosichkin_pr_18_v5
             batch_size.Text = p1.Номер_партии.ToString();
             buyers_firm.Text = p1.Фирма_покупателя;
 
-            //size_of_the_sold = p1.Размер_проданной_партии;
-            //sale_price = p1 = p1.Цена_продажи;
-
-
-            //p1.Цена_продажи = Convert.ToInt32(sale_price.);
-            //p1.Цена_поступления = Convert.ToInt32(admission_price.Text);
-
+            size_of_the_sold.Text = p1.Размер_проданной_партии.ToString();
+            sale_price.Text = p1.Цена_продажи.ToString();
+            admission_date.SelectedDate = p1.Дата_поступления;
+            date_of_sale.SelectedDate = p1.Дата_продажи;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Kosichkin_pr_18_v5
     
     public partial class Sales_table
     {
-        public string Код { get; set; }
+        public int Код { get; set; }
         public string Наименование_товара { get; set; }
         public decimal Цена_поступления { get; set; }
         public System.DateTime Дата_поступления { get; set; }
@@ -24,5 +24,10 @@ namespace Kosichkin_pr_18_v5
         public decimal Размер_проданной_партии { get; set; }
         public decimal Цена_продажи { get; set; }
         public System.DateTime Дата_продажи { get; set; }
+
+
+
+        // сделать права админа и пользователя
+        // запросы
     }
 }
